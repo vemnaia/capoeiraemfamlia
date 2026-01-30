@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { z } from "zod";
+
+const emailSchema = z.string().trim().email("E-mail inválido").max(254, "E-mail muito longo");
 
 interface Question {
   id: number;
@@ -96,6 +99,7 @@ const QuizSection = () => {
   const [email, setEmail] = useState("");
   const [result, setResult] = useState<"sintonia" | "energia" | "foco" | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const handleAnswer = (profile: string) => {
     const newAnswers = [...answers, profile];
@@ -120,9 +124,17 @@ const QuizSection = () => {
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setEmailError(null);
+    
+    const validation = emailSchema.safeParse(email);
+    if (!validation.success) {
+      setEmailError(validation.error.errors[0]?.message || "E-mail inválido");
+      return;
+    }
+    
     setIsSubmitting(true);
     
-    // Simulate submission
+    // Simulate submission - email is validated but not sent anywhere currently
     setTimeout(() => {
       setResult(calculateResult());
       setIsSubmitting(false);
@@ -138,6 +150,7 @@ const QuizSection = () => {
     setAnswers([]);
     setShowEmailCapture(false);
     setEmail("");
+    setEmailError(null);
     setResult(null);
   };
 
@@ -207,14 +220,23 @@ const QuizSection = () => {
               </p>
 
               <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto space-y-4">
-                <Input
-                  type="email"
-                  placeholder="Seu melhor e-mail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-14 text-lg text-center"
-                  required
-                />
+                <div>
+                  <Input
+                    type="email"
+                    placeholder="Seu melhor e-mail"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError(null);
+                    }}
+                    className={`h-14 text-lg text-center ${emailError ? 'border-destructive' : ''}`}
+                    maxLength={254}
+                    required
+                  />
+                  {emailError && (
+                    <p className="text-destructive text-sm mt-2">{emailError}</p>
+                  )}
+                </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
