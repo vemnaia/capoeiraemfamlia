@@ -24,6 +24,14 @@ const HeroSection = () => {
             📖 eBook Capoeira em Família
           </span>
           
+          <div className="inline-flex items-center gap-2 bg-primary-foreground/15 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+            <span className="text-primary-foreground/70 text-sm line-through">R$ 57,00</span>
+            <span className="text-accent font-bold text-sm">R$ 17,70</span>
+            <span className="bg-accent text-accent-foreground text-xs px-2 py-0.5 rounded-full font-bold">
+              69% OFF
+            </span>
+          </div>
+          
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight mb-6">
             Treine capoeira em casa, fortaleça o vínculo com seus filhos e
             <span className="block text-accent"> divirtam-se juntos!</span>
