@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
+import { getCheckoutUrl } from "@/lib/checkout";
 
 const emailSchema = z.string().trim().email("E-mail inválido").max(254, "E-mail muito longo");
 
@@ -277,7 +278,7 @@ const QuizSection = () => {
               </div>
 
               <a
-                href="https://pay.kiwify.com.br/OsM3esD"
+                href={getCheckoutUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta inline-block mb-4"
