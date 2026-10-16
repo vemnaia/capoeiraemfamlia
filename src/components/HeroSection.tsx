@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-family-capoeira.jpg";
+import { getCheckoutUrl } from "@/lib/checkout";
 
 const HeroSection = () => {
   const scrollToQuiz = () => {
@@ -26,9 +27,9 @@ const HeroSection = () => {
           
           <div className="inline-flex items-center gap-2 bg-primary-foreground/15 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <span className="text-primary-foreground/70 text-sm line-through">R$ 57,00</span>
-            <span className="text-accent font-bold text-sm">R$ 17,70</span>
+            <span className="text-accent font-bold text-sm">R$ 27,90</span>
             <span className="bg-accent text-accent-foreground text-xs px-2 py-0.5 rounded-full font-bold">
-              69% OFF
+              51% OFF
             </span>
           </div>
           
@@ -51,7 +52,7 @@ const HeroSection = () => {
             </button>
             
             <a
-              href="https://pay.kiwify.com.br/OsM3esD"
+              href={getCheckoutUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-cta"

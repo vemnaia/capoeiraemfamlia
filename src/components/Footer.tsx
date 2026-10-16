@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { openCookieSettings } from "@/components/AdvertisingConsent";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -14,10 +18,11 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-primary-foreground transition-colors">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm">
+            <Link to="/privacidade" className="hover:text-primary-foreground transition-colors">
               Política de Privacidade
-            </a>
+            </Link>
+            <Button variant="link" onClick={openCookieSettings} className="h-auto p-0 text-inherit hover:text-primary-foreground">Configurações de cookies</Button>
             <a href="#" className="hover:text-primary-foreground transition-colors">
               Termos de Uso
             </a>

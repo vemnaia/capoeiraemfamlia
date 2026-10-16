@@ -1,4 +1,5 @@
 import { ShieldCheck, CreditCard, Mail, Tag } from "lucide-react";
+import { getCheckoutUrl } from "@/lib/checkout";
 
 const CTASection = () => {
   return (
@@ -25,13 +26,13 @@ const CTASection = () => {
                 R$ 57,00
               </span>
               <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-bold">
-                69% OFF
+                51% OFF
               </span>
             </div>
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-primary-foreground/80 text-xl">R$</span>
               <span className="font-display text-5xl md:text-6xl font-bold text-accent">
-                17,70
+                27,90
               </span>
             </div>
             <p className="text-primary-foreground/70 text-sm mt-2">
@@ -40,7 +41,7 @@ const CTASection = () => {
           </div>
 
           <a
-            href="https://pay.kiwify.com.br/OsM3esD"
+            href={getCheckoutUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-cta inline-block text-xl mb-8"
