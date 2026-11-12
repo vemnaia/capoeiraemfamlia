@@ -21,7 +21,7 @@ Crie uma landing page para um eBook chamado "Capoeira em Família", focado em pa
    - Exemplo de mini treino ou passagem do conteúdo.
 
 5) Botão de compra:
-   - Usar link de checkout: https://pay.kiwify.com.br/OsM3esD
+   - Usar link de checkout: https://pay.kiwify.com.br/ZDx3FiL
    - Texto do botão: Comprar agora / Quero treinar com meu filho.
    - Repetir botão após quiz, também no fim da página.
 

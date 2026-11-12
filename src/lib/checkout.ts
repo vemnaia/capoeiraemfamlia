@@ -1,4 +1,4 @@
-export const CHECKOUT_URL = "https://pay.kiwify.com.br/OsM3esD";
+export const CHECKOUT_URL = "https://pay.kiwify.com.br/ZDx3FiL";
 
 export function getCheckoutUrl(base = CHECKOUT_URL, search = window.location.search) {
   const checkout = new URL(base);
